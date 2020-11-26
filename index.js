@@ -3,8 +3,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
+const bodyParser = require('body-parser');
+
 
 require('./models/User');
+require('./models/Booking');
 require('./services/passport');
 
 
@@ -12,6 +15,9 @@ const url = "mongodb+srv://admin:"+process.env.MONGO_PASSWORD+"@cluster0.ayla2.m
 mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true});
 
 var app = express();
+
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: false }));
 
 //using cookie session 
 app.use(
@@ -30,6 +36,6 @@ app.get('/', (req, res) =>{
 });
 
 require('./routes/authRoutes')(app);
-
+require('./routes/apiRoutes')(app);
 
 app.listen(8000);

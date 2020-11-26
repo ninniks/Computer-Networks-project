@@ -10,14 +10,14 @@ module.exports = app => {
   );
   
   //if I obtained the grant i redirect to /api/current_user
-  app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login'}), (req, res) =>{
-    res.redirect('/api/current_user');
+  app.get('/auth/google/callback', passport.authenticate('google'), (req, res) =>{
+    res.redirect('http://localhost:3000/home');
   });
 
   //route to logout
   app.get('/api/logout', (req, res) => {
     req.logout();
-    res.send(req.user);
+    res.redirect('/');
   });
 
   //just seeing user info

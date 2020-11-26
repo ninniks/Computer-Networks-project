@@ -1,7 +1,6 @@
 var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const mongoose = require('mongoose');
-const { use } = require('passport');
 
 //opening USer model define in User.js
 const User = mongoose.model('users');
@@ -34,7 +33,7 @@ passport.use(new GoogleStrategy({
             return done(null, existingUser);
         } 
         
-        const user = await new User({ googleID: profile.id }).save()
+        const user = await new User({ googleID: profile.id, name: profile.displayName, photo: profile._json.picture }).save()
         done(null, user);  
     }
 ));
