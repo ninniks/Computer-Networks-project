@@ -5,7 +5,6 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const bodyParser = require('body-parser');
 
-
 require('./models/User');
 require('./models/Booking');
 require('./services/passport');
@@ -15,6 +14,21 @@ const url = "mongodb+srv://admin:"+process.env.MONGO_PASSWORD+"@cluster0.ayla2.m
 mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true});
 
 var app = express();
+var http = require('http').createServer(app);
+
+const io = require("socket.io")(http, {
+    cors: {
+      origin: "http://localhost:3000",
+      methods: ["GET", "POST"],
+      allowedHeaders: ["my-custom-header"],
+      credentials: true
+    },
+});
+
+io.on('connection', (socket) => {
+    console.log('a user connected');
+});
+
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -36,6 +50,6 @@ app.get('/', (req, res) =>{
 });
 
 require('./routes/authRoutes')(app);
-require('./routes/apiRoutes')(app);
+require('./routes/apiRoutes')(app, io);
 
-app.listen(8000);
+http.listen(8000);

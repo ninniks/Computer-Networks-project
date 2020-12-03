@@ -17,3 +17,9 @@ module.exports.checkAndSaveBooking = async (userid, startDate, endDate) => {
     return true;
 
 };
+
+module.exports.loadBookedDates = async () => {
+    const bookedDates = await Booking.find();
+
+    return bookedDates;
+}
