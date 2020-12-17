@@ -1,18 +1,20 @@
 const mongoose = require('mongoose');
 const Booking = mongoose.model('bookings');
+const _ = require('lodash');
+const moment = require('moment');
 
-module.exports.checkAndSaveBooking = async (userid, startDate, endDate) => {
-
+module.exports.checkAndSaveBooking = async (userID, date) => {
+    console.log('test', date);
     //API call to MongoDB to check if there's a booking with this dates
-    const existingBooking = await Booking.findOne({startTime: startDate, endTime: endDate });
+    const existingBooking = await Booking.findOne({ date });
+    
     console.log("ExistingBooking: "+existingBooking+"\n");
 
     if(existingBooking){
         return false;
     }
     
-    // if not saving new booking record
-    const booking = await new Booking({userID: userid, startTime:startDate, endTime:endDate }).save();
+    const booking = await new Booking({ date, userID }).save();
     console.log("Saved new booking");
     return true;
 
@@ -22,4 +24,20 @@ module.exports.loadBookedDates = async () => {
     const bookedDates = await Booking.find();
 
     return bookedDates;
+}
+
+
+module.exports.loadBookedHours = async (date) => {
+    const dates = await Booking.find({ date });
+    let hours =_.map(dates, (data) => {
+        return {start: data.startHour, end: data.endHour}
+    });
+
+    return hours;
+}
+
+module.exports.loadAllUserBookings = async (userid) => {
+    const bookings = await Booking.find({userID: userid});
+
+    return bookings;
 }

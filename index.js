@@ -25,11 +25,6 @@ const io = require("socket.io")(http, {
     },
 });
 
-io.on('connection', (socket) => {
-    console.log('a user connected');
-});
-
-
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: false }));
 
