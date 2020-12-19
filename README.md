@@ -16,7 +16,6 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 [![Contributors][contributors-shield]][contributors-url]
-[![MIT License][license-shield]
 
 
 
@@ -74,7 +73,7 @@
 <li>At the least one of two outer REST services must be 'commercial' (es: twitter, google, facebook, pubnub, parse, firbase etc)</li>
 <li>At the least one of two outer REST services must require oauth e.g. google calendar)</li>
 <li>Must use Websocket and/or AMQP</li>
-<li>Project must be uploaded on GIT<li>
+<li>Project must be uploaded on GIT</li>
 <li>SERV API must be documented and tested with one test case</li>
 </ul>
 </p>
@@ -158,5 +157,4 @@ Project Link: [https://github.com/ninniks/Computer-Networks-project](https://git
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/ninniks/Computer-Networks-project?style=for-the-badge
 [contributors-url]: https://github.com/ninniks/Computer-Networks-project/graphs/contributors
-[license-shield]: https://img.shields.io/github/license/ninniks/Computer-Networks-project.svg?style=for-the-badge
 [product-screenshot]: images/screenshot.png
