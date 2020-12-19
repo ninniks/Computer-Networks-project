@@ -5,18 +5,15 @@ module.exports = (app, socket) => {
     app.post('/api/book', (req, res) =>{
 
         let state = JSON.parse(req.body.date);
-        console.log('Post Date',state);
         
-       let ret = API.checkAndSaveBooking(req.user._id, state).then((value) => {
-           return value;
-        });
-
-        if(ret){
+       API.checkAndSaveBooking(req.user._id, state).then((value) => {
+           if(value){
             socket.emit("Booked", JSON.stringify({ state }));
-            return res.send("ok");
-        }
+            return res.send(true);
+           }
 
-        return res.send("fail");
+            return res.send(false);
+        });
 
     });
 

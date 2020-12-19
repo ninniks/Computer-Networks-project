@@ -6,30 +6,33 @@ import { connect } from 'react-redux'; //to call action creators
 import * as actions from './actions';
 import Navbar from './components/Navbar';
 import Booking from './components/Booking';
+import Home from './components/Home';
 import { Layout } from 'antd';
-
-
-const Dashboard = () => <h2>Dashboard</h2>
-const Home = () => <h2>Home</h2>
+import PrivateRoute from './components/PrivateRoute';
+import Login from './components/Login';
 
 
 class App extends Component {
-  componentDidMount() {
-    this.props.fetchUser();
+  async componentDidMount() {
+    await this.props.fetchUser();
   }
-
+  
   render(){
     return(<div>
       <BrowserRouter>
         <Layout>
-          <Route path= "/" component={Navbar} />
-          <Route exact={true} path="/book" component={Booking}/>
-          <Route path="/home" component={Home} />
-          <Route exact={true} path="/profile" component={Dashboard} />
+          <Route path = '/' component={Navbar} />
+          <Route exact path= '/' component={Home} />
+          <PrivateRoute component={Booking} auth={this.props.auth} path='/book'/>
+          <Route exact path='/login' component={Login} />
         </Layout>
       </BrowserRouter>
     </div>);
   }
 };
 
-export default connect(null, actions)(App);
+function mapStateToProps({ auth }) {
+  return { auth };
+}
+
+export default connect(mapStateToProps, actions)(App);

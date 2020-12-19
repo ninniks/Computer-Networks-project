@@ -1,35 +1,55 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import { Layout, Menu, } from 'antd';
+import { Menu, Avatar, Spin, Space } from 'antd';
+import { LogoutOutlined, GoogleOutlined, LoadingOutlined, UserOutlined, HomeOutlined, UnorderedListOutlined } from '@ant-design/icons'
+import { Link } from 'react-router-dom';
 
-const { Header } = Layout;
+
+const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
+
 
 class Navbar extends Component {
 
   renderContent(){
-    switch (this.props.auth){
+    switch (this.props.auth.data){
       case null:
-        return;
+        return( <Spin icon={antIcon} />);
       case false:
         return (
-          <h1>asdasf</h1>
+         <Space size={10}>
+          <GoogleOutlined />
+         <a href='/auth/google'>Login with Google</a>
+         </Space>
         );
       default:
         return (
-          <h1>asdfdasdf</h1>
+          <div>
+          <Space>
+          <b>{this.props.auth.data.name}</b>
+          <Avatar style={{marginLeft: '15px'}} size="large" src={this.props.auth.data.photo}icon={<UserOutlined />} />
+          <a href='/api/logout'><LogoutOutlined style={{marginLeft: '20px'}}/></a>
+          </Space>
+          </div>
         );
     }
   }
-    render(){
+
+  render(){
       return (
-      <Header>
+        <div>
         <div className="logo" />
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-          <Menu.Item key="1">nav 1</Menu.Item>
-          <Menu.Item key="2">nav 2</Menu.Item>
-          <Menu.Item key="3">nav 3</Menu.Item>
+        <Menu mode="horizontal" defaultSelectedKeys={['1']}>
+          <Menu.Item style={{paddingLeft: '20px'}} icon={<HomeOutlined />} key="1">Home
+          <Link to='/'/>
+          </Menu.Item>
+          <Menu.Item icon={<UnorderedListOutlined />} key="2">My Bookings
+          <Link to='/book' />
+          </Menu.Item>
+          <div style ={{position:'inline', float: 'right', paddingRight: '40px'}}>
+          {this.renderContent()}
+          </div>
         </Menu>
-      </Header>
+        </div>
       );
     }
 }

@@ -11,7 +11,7 @@ module.exports = app => {
   
   //if I obtained the grant i redirect to /api/current_user
   app.get('/auth/google/callback', passport.authenticate('google'), (req, res) =>{
-    res.redirect('http://localhost:3000/home');
+    res.redirect('http://localhost:3000');
   });
 
   //route to logout

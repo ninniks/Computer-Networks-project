@@ -1,21 +1,18 @@
 const mongoose = require('mongoose');
 const Booking = mongoose.model('bookings');
 const _ = require('lodash');
-const moment = require('moment');
 
 module.exports.checkAndSaveBooking = async (userID, date) => {
     console.log('test', date);
     //API call to MongoDB to check if there's a booking with this dates
     const existingBooking = await Booking.findOne({ date });
     
-    console.log("ExistingBooking: "+existingBooking+"\n");
 
     if(existingBooking){
         return false;
     }
     
     const booking = await new Booking({ date, userID }).save();
-    console.log("Saved new booking");
     return true;
 
 };
