@@ -16,7 +16,7 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 [![Contributors][contributors-shield]][contributors-url]
-[![MIT License][license-shield]][license-url]
+[![MIT License][license-shield]]
 
 
 
@@ -161,8 +161,7 @@ Project Link: [https://github.com/ninniks/Computer-Networks-project](https://git
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/ninniks/Computer-Networks-project?style=for-the-badge
 [contributors-url]: https://github.com/ninniks/Computer-Networks-project/graphs/contributors
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
+[license-shield]: https://img.shields.io/github/license/ninniks/Computer-Networks-project.svg?style=for-the-badge
 [product-screenshot]: images/screenshot.png
