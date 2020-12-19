@@ -29,7 +29,9 @@
     Computer Networks Project - La Sapienza <br />
     My Booking is a Web Application that allows you to schedule meetings on a calendar.
     <br />
-    ![Product Name Screen Shot][product-screenshot]]
+   </p>
+   [![Product Name Screen Shot][product-screenshot]]
+   <p align='center>
     <br/>
     <a href="https://github.com/ninniks/Computer-Networks-project"><strong>Explore the docs »</strong></a>
     <br />
