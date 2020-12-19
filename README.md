@@ -16,7 +16,7 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 [![Contributors][contributors-shield]][contributors-url]
-[![MIT License][license-shield]]
+[![MIT License][license-shield]
 
 
 
@@ -24,10 +24,6 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-    
   <h3 align="center">My Bookings</h3>
 
   <p align="center">
@@ -69,7 +65,6 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 <strong>Requirements</strong>
 <p>
