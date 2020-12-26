@@ -118,7 +118,7 @@ Then you need to configure MongoDB and provide <b>MONGO_PASSWORD</b> and <b>DB_N
   ```sh
   npm install npm@latest -g
   ```
- *node 
+ * node 
  ```sh
  npm install nodejs@latest -g
  ```
