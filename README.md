@@ -30,7 +30,7 @@
     My Booking is a Web Application that allows you to schedule meetings on a calendar.
     <br />
     <br/>
-    <a href="https://github.com/ninniks/Computer-Networks-project"><strong>Explore the docs »</strong></a>
+    <a href="https://app.swaggerhub.com/apis-docs/ninniks/MyBooking/1.0.0"><strong>Explore the API docs in Swagger »</strong></a>
     <br />
     <br />
   </p>
@@ -71,10 +71,10 @@
 <strong>Requirements</strong>
 <p>
 <ul>
-<li> REST service (called SERV) that offer API documented with swagger for ex.</li>
-<li>SERV must to interface at the least with to outer REST API, i.e not on localhost (e.g google maps)</li>
-<li>At the least one of two outer REST services must be 'commercial' (es: twitter, google, facebook, pubnub, parse, firbase etc)</li>
-<li>At the least one of two outer REST services must require oauth e.g. google calendar)</li>
+<li> REST service (called SERV) offers API documented with Swagger (for ex.)</li>
+<li>SERV must interface with two outer REST API, i.e not on localhost (e.g google maps)</li>
+<li>At the least one of two outer REST services must be 'commercial' (e.g: twitter, google, facebook, pubnub, parse, firbase etc)</li>
+<li>At the least one of two outer REST services must require oauth (e.g. google calendar)</li>
 <li>Must use Websocket and/or AMQP</li>
 <li>Project must be uploaded on GIT</li>
 <li>SERV API must be documented and tested with one test case</li>
@@ -118,6 +118,10 @@ Then you need to configure MongoDB and provide <b>MONGO_PASSWORD</b> and <b>DB_N
   ```sh
   npm install npm@latest -g
   ```
+ *node 
+ ```sh
+ npm install nodejs@latest -g
+ ```
 
 
 ### Installation
